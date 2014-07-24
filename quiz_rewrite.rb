@@ -1,4 +1,3 @@
-
 questions = [["Which automobile maker introduced the 'Karmann Ghia'? 
 a: Oldsmobile,
 b: Porche,

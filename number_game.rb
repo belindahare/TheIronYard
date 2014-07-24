@@ -1,6 +1,6 @@
-puts "I'm thinking of a number between 1 and 10.  Can you guess it?"
-#@numbers.each do |num|
+puts "I'm thinking of a number between 1 and 100.  Can you guess it?"
 numbers = rand(1..100)
+puts "#{numbers}"
 gameon = true
 
 while gameon
