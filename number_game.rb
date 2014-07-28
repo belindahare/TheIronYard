@@ -19,3 +19,6 @@ elsif user_input == "#{numbers}"
 end	
 	
 end
+
+hero_array = []
+enter button = [].push(-)

@@ -5,7 +5,7 @@ numbers = rand(1..100)
 @count = 0
 @gameon = true
 	def check_win
-		if @count >= 5
+		if @count >= 6
 			puts "I couldn't guess it that round, but let's play again!"
 			abort
 		end
@@ -14,11 +14,7 @@ puts "#{numbers}"
 puts "Is that right?"
 puts "type: higher, lower, or yes"
  
-while @gameon
-	if @gameon == false
-		break
-		puts "I couldn't guess it that round, but let's play again!"
-	end
+while @gameon = true
 user_input = gets.chomp!
 	if user_input.downcase == "higher"
 		puts numbers +=6
@@ -31,5 +27,9 @@ user_input = gets.chomp!
 	elsif user_input.downcase == "yes"
 		puts "Woo hoo! I got it!"
 		abort
+		if @gameon = false
+		break
+		puts "I couldn't guess it that round, but let's play again!"
+	end
 	end
 end
