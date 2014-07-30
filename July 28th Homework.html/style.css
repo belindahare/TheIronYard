@@ -1,0 +1,68 @@
+*, *:before, *:after { box-sizing: border-box; }
+
+body{
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  margin: 0px;
+
+}
+.body {
+  width: 100%;
+  height: 900px;
+  background-color: white; 
+}
+
+.login-header{
+  width: 100%;
+  height: 5px;
+  background-color: white;
+  border: 1px solid #CCC;
+  list-style-type: none;
+  display: inline;
+  margin: 0px; 
+}
+
+nav ul li
+{
+display:inline; 
+padding-left: 0px;
+list-style:none; 
+margin: 0px;
+
+}
+/*menu ul li
+{
+  display:inline-block;
+  padding-left: 80px;
+  list-style: none;
+  margin: 0px;
+}
+*/
+
+.menu-header {
+  width: 100%;
+  height: 45px;
+  background-color: #EFEFEF;
+}
+
+.main-header {
+
+width: 100%;
+height: 200px;
+background-image: url(https://g2.twimg.com/about/system/files/styles/hero_3200w_600h/public/about/page/hero/about-frontdoor-hero.jpg);
+background-color: #66B6F1;
+background-image: inherit;
+background size: 1000px;
+border: 1px solid #EFEFEF;
+color: white;
+text-align: center;
+
+}
+
+h1 {padding-top: 30px; font-size: 3.2em; font-weight: 600; letter-spacing: .01rem; margin-top: 0; margin-bottom: 0; text-shadow: 2px 2px 2px #5F7E94;}
+h3 {padding: 0px; margin: 0px; font-size: 1.5em; font-weight: 100 ; letter-spacing: 0.02rem;}
+h5{
+  padding-left: 80px; font-size: 1.5em; font-weight:100; margin: 0; display:inline-block;
+}
+h6 {padding-left: 850px; font-size: .85em; margin: 0px; margin: 0em;}
+ul {margin: 0px; font-size: .95em; font-weight: 200; }
+
