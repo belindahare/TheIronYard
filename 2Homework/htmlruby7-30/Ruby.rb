@@ -1,7 +1,6 @@
 require 'sinatra'
 require 'Faker'
 
-@Faker = Faker::Internet.email
 # homepage
 get '/' do
   erb :Home, layout: :siteformat
