@@ -1,0 +1,50 @@
+*, *:before, *:after { box-sizing: border-box; }
+body {
+  font-family: Pirata One, Ubuntu Condensed, Playfair Display; 
+  background-color: #D2C9AA;
+  color: #643432;
+  text-shadow-color:#000;
+  font-weight: 100;
+  text-align: center;
+  font-size: 35px;
+}
+.header{
+
+font-size: 70px;
+margin-bottom: 5px;
+text-shadow: 5px 5px 5px 5px;
+}
+p {
+display: block;
+margin-right: 5em;
+margin-left: 5em;
+
+}
+
+nav{  
+  margin: 0;
+  margin-bottom: 9px;
+  margin-right: 10px;
+  font-size: 26px;
+}
+
+a {
+    text-decoration: none; 
+    color: #643432; 
+    font-family: Pirata One;
+    font-weight: 400;
+}
+
+.footer{
+   position:absolute;
+   margin-bottom: 0;
+   padding-top: 90px;
+   bottom:0;
+   width:100%;
+   height:60px;
+   text-align: center;
+}
+h1{
+  margin: 0;
+  text-align: center
+}
