@@ -1,0 +1,15 @@
+<a href="/create_post">Create Post</a>
+<br>
+<br>
+
+<% @post.each do |post| %>
+
+ <%= post.post_title %>
+
+
+<br>
+  <a href="/show_post/<%= post.id %>">Delete Post
+  </a>
+  <a href="/edit_post/<%= post.id %>" >Edit Post</a>
+  <br>
+<% end %>
