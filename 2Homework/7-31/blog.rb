@@ -10,7 +10,7 @@ class Post
   include DataMapper::Resource
     property :id, Serial
     property :post_title, String
-    property :content, String
+    property :content, Text
 end
 
 DataMapper.finalize.auto_upgrade!
@@ -29,6 +29,10 @@ post '/create_post' do
   redirect to ('/')
 end
 
+get '/show_post/:id' do
+  @post = Post.get params[:id]
+  erb :show_post, layout: :siteplan
+end
 
 get '/edit_post/:id' do
   @post = Post.get params[:id]
@@ -39,11 +43,6 @@ post '/edit_post/:id' do
   @post = Post.get params[:id]
   @post.update params[:post]
   redirect to('/')
-end
-
-get '/show_post/:id' do
-  @post = Post.get params[:id]
-  erb :show_post, layout: :siteplan
 end
 
 
