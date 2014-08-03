@@ -45,7 +45,6 @@ post '/edit_post/:id' do
   redirect to('/')
 end
 
-
 delete '/delete_post/:id' do
   @post = Post.get params[:id]
   @post.destroy
