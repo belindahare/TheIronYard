@@ -3,23 +3,19 @@
 <form action= "/edit_post/<%= @post.id%>" method= "post">
 <input type= "hidden" name "_method" value= "put">
 Title:
-<label for= "post_title" name = "[post title]" value = "put"></label>
+<label for= "post_title" name = "post[post_title]" value = "put"></label>
   <input type= "text" id="post_title" name= "post[post_title]" value= "<%= @post.post_title %>">
   <br>
   Blog Post:
   <br>
 
+<label for= "content" name = "post[content]" value = "put">
+  <textarea type= "text" id="content" rows="20" cols="100" name="post[content]"><%= @post.content %></textarea>
 
- <!-- <label for= "content" name = "post[content]" value = "put"> -->
-
-<!-- <input type= "hidden" name "_method" value= "put">
- --> 
-    
-    <textarea id= "content"name: "post[content]" rows= "10" value= "<%= @post.content %>"> </textarea> 
-<!-- <input type= "text" id="content" name= "post[content]" value= "<%= @post.content %>">  -->
 <br>
 <br>
 <input type = "submit" value= "Save Changes"> 
 
-<a href="/">back</a>
+
 </form>
+<a href="/">back</a>
