@@ -1,0 +1,11 @@
+<h3>List of Blogs</h3>
+<%= link_to "New Blog Post",new_blog_path %>
+  <ul>
+    <% @blogs.each do |blog| %>
+    <li>
+      <% blog.title %>
+      <%= link_to "Edit", edit_blog_path(blog) %>
+      <%= link_to "Delete", blog_path(blog), method: :delete %>
+    </li>
+    <% end %>
+  </ul>
