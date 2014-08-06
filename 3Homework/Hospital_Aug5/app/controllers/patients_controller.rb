@@ -8,8 +8,12 @@ class PatientsController < ApplicationController
   end
 
   def create
-    @patient = Patient.create patient_params
+    @patient = Patient.new patient_params
+    if @patient.save
     redirect_to root_path
+    else 
+      render :new
+    end
   end
 
   def edit
@@ -17,11 +21,16 @@ class PatientsController < ApplicationController
   end
 
   def update
-    @patient.update_attributes patient_params
-    redirect_to root_path 
+    if @patient.update_attributes patient_params
+        redirect_to root_path 
+    else 
+        render :edit
+    end
+
   end
 
   def destroy
+    @patient.delete
     redirect_to root_path
   end
 
@@ -33,5 +42,11 @@ class PatientsController < ApplicationController
       @patient = Patient.find params[:id]
     end
 end
+
+
+#from show page
+#<%= link_to "Edit", edit_patient_path(patient) %> | 
+#<%= link_to "Delete", patient_path(patient), method: :delete %>
+#<%= link_to "Back", root_path %>
 
 
