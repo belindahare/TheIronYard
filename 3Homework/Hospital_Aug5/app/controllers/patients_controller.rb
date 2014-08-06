@@ -1,5 +1,5 @@
 class PatientsController < ApplicationController
-
+  before_action :find_patient, only: [:show, :edit, :update, :destroy]
   def show
   end
 
@@ -13,10 +13,10 @@ class PatientsController < ApplicationController
   end
 
   def edit
+   
   end
 
   def update
-    @patient = Patient.find params [:id]
     @patient.update_attributes patient_params
     redirect_to root_path 
   end

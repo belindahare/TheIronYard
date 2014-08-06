@@ -1,19 +1,7 @@
 class Patient < ActiveRecord::Base
-  def show
-  end
-  def new
-  end
-  def create
-  end
-  def edit
-  end
-  def update 
-  end
-  def destroy
-  end
-  private 
-    def food_params
-    end
-    def find_patient
-    end
+ validates :first_name, presence: true
+ validates :last_name, presence: true
+ validates :dob, date: { before: Proc.new { Date.today }, message: 'must be before today' }, on: :create
+ validates :description, presence: true
+ validates :gender, presence: true
 end

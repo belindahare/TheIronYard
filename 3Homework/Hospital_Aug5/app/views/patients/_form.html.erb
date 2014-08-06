@@ -1,5 +1,17 @@
 
-<%= form_for @Patient do |f| %>
+<%= form_for @patient do |f| %>
+ <% if  f.object.errors.messages.length > 0 %>
+  <% f.object.errors.messages.inspect%>
+  <br>
+    <% f.object.errors.messages.each do |key, value| %>
+    <% value.each do |message| %>
+    <%= key.capitalize %> <%= message%>
+    <br>
+    <% end %>
+    <br>
+    <% end %>
+  <% end %>
+
 
   <%= f.label :first_name %>
   <%= f.text_field :first_name %>
@@ -8,13 +20,15 @@
   <%= f.text_field :last_name %>
   <br>
   <%= f.label :dob %>
-  <%= f.text_field :dob %>
+  <%= f.date_select :dob %>
   <br>
-  <%= f.label :description %>
+  <%= f.label :description, "Enter reason for patient's visit" %>
   <%= f.text_field :description %>
   <br>
-  <%= f.label :gender %>
-  <%= f.text_field :gender %>
+  <%= f.label "Male" %>
+  <%= f.radio_button :gender, "Male" %>
+  <%= f.label "Female" %>
+  <%= f.radio_button :gender, "Female" %>
   <br>
 
   <%= f.submit %>

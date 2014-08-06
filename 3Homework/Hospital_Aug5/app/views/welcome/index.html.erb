@@ -4,8 +4,7 @@
 <ul> Patients:
   <% @patient.each do |patient| %>
     <li>
-    <%= patient.first_name %> | <%= patient.last_name %> | [<%= link_to "Edit", edit_patient_path(patient) %>]  
-      <!-- add after the program is built, patient.dob, patient.discription(text field-why the patient is at the hospital) patient.gender (radio button) -->
+    <%= patient.first_name %> <%= patient.last_name %> [<%= link_to "Edit", edit_patient_path(patient) %> | <%= link_to "Delete", patient_path(patient), method: :delete %>]  
     </li>
     <% end %> 
   </ul>

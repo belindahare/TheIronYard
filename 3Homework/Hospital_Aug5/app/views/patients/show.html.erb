@@ -1,0 +1,11 @@
+<h1><%= @patient.first_name %><%= @patient.last_name %></h1> - <h3> <%= @patient.dob %> </h3>
+<ul>
+  <li>
+    <%= @patient.description %>
+  </li>
+</ul>
+<br>
+<hr><hr>
+<%= link_to "Edit", edit_patient_path(@patient.id) %> | 
+<%= link_to "Delete", patient_path(@patient), method: :delete %>
+<%= link_to "Back", root_path %>
