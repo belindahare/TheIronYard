@@ -1,0 +1,14 @@
+<h1>Hospital Database</h1>
+<h2>Patient Data</h2>
+  <%= link_to "New Patient", new_patient_path %>
+<ul> Patients:
+  <% @patient.each do |patient| %>
+    <li>
+    <%= patient.first_name %> | <%= patient.last_name %> | [<%= link_to "Edit", edit_patient_path(patient) %>]  
+      <!-- add after the program is built, patient.dob, patient.discription(text field-why the patient is at the hospital) patient.gender (radio button) -->
+    </li>
+    <% end %> 
+  </ul>
+  
+
+
