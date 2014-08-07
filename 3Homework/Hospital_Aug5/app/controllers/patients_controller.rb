@@ -1,5 +1,5 @@
 class PatientsController < ApplicationController
-  before_action :find_patient, only: [:show, :edit, :update, :destroy]
+  before_action :find_patient, only: [:show, :edit, :update, :destroy, :examined, :xrayed, :recovery, :discharged]
   def show
   end
 

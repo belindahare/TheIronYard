@@ -1,6 +1,6 @@
 %h1 Hospital Database
 = link_to 'Admit New Patient', new_patient_path
-
+%br
 %table
   %tr
     %th first_name
@@ -21,28 +21,29 @@
       %td= patient.workflow_state
       %td= link_to 'Show', patient
       %td= link_to 'Edit', edit_patient_path(patient)
-      %td= link_to 'Destroy', patient, :method => :delete, :data => {:confirm => 'Are you sure?'}
+      / %td= link_to 'Destroy', patient, :method => :delete, :data => {:confirm => 'Are you sure?'}
       %td.workflow_state
-        - case patient.workflow_state
 
-        - when patient.workflow_state != "waiting_room!" 
+        - if patient.workflow_state != "waiting_room!" 
           = link_to "Checkup",examined_patient_path(patient), method: :put
           = link_to "X-Ray", xrayed_patient_path(patient), method: :put
           = link_to "Surgery", recovery_patient_path(patient), method: :put
           = link_to "Discharge", discharged_patient_path(patient), method: :put
 
-        - when patient.workflow_state != "examined"
+        - if patient.workflow_state == "examined"
           = link_to "xrayed", xrayed_patient_path(patient), method: :put
           = link_to "recovering", recovery_patient_path(patient), method: :put
           = link_to "discharged", discharged_patient_path(patient), method: :put
 
-        - when patient.workflow_state != "xrayed"
+        - if patient.workflow_state == "xrayed"
           = link_to "recovering", recovery_patient_path(patient), method: :put
           = link_to "discharged", discharged_patient_path(patient), method: :put
 
-        - when patient.workflow_state != "recovering"
+        - if patient.workflow_state == "recovering"
           = link_to "discharged", discharged_patient_path(patient), method: :put
 
-        - when patient.workflow_state != "discharged"
-          = link_to "Discharge", patient, :method => :delete, :data => {:confirm => "Would you like to discharge this patient?"} 
+        - if patient.workflow_state == "discharged"
+          = link_to "Discharge Patient From Database", patient, :method => :delete, :data => {:confirm => "Would you like to discharge this patient?"} 
 
+
+/ finance dept: :account settled
