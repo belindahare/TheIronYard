@@ -11,7 +11,7 @@
     = @patient.description
 %br
 
-%h5 @patient.current_state
+%h5 = @patient.workflow_state
 
 %br
 = link_to "Home", root_path

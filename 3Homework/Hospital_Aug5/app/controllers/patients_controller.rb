@@ -34,23 +34,23 @@ class PatientsController < ApplicationController
     redirect_to root_path
   end
 
-  # def examined
-  #   @patient.examined!
-  #   redirect_to patient_url
-  # end
+  def examined
+    @patient.checkup!
+    redirect_to patient_url
+  end
 
   def xrayed
-    @patient.xrayed!
+    @patient.xray!
     redirect_to patient_url
   end
 
   def recovery
-    @patient.recovering!
+    @patient.surgery!
     redirect_to patient_url
   end
 
   def discharged
-    @patient.discharged!
+    @patient.finance!
     redirect_to patient_url
   end
 

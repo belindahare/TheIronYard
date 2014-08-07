@@ -23,24 +23,26 @@
       %td= link_to 'Edit', edit_patient_path(patient)
       %td= link_to 'Destroy', patient, :method => :delete, :data => {:confirm => 'Are you sure?'}
       %td.workflow_state
-        - if patient.workflow_state != "waiting_room!" 
+        - case patient.workflow_state
+
+        - when patient.workflow_state != "waiting_room!" 
           = link_to "Checkup",examined_patient_path(patient), method: :put
           = link_to "X-Ray", xrayed_patient_path(patient), method: :put
           = link_to "Surgery", recovery_patient_path(patient), method: :put
           = link_to "Discharge", discharged_patient_path(patient), method: :put
 
-        - if patient.workflow_state != "examined"
+        - when patient.workflow_state != "examined"
           = link_to "xrayed", xrayed_patient_path(patient), method: :put
           = link_to "recovering", recovery_patient_path(patient), method: :put
           = link_to "discharged", discharged_patient_path(patient), method: :put
 
-        - if patient.workflow_state != "xrayed"
+        - when patient.workflow_state != "xrayed"
           = link_to "recovering", recovery_patient_path(patient), method: :put
           = link_to "discharged", discharged_patient_path(patient), method: :put
 
-        - if patient.workflow_state != "recovering"
+        - when patient.workflow_state != "recovering"
           = link_to "discharged", discharged_patient_path(patient), method: :put
 
-        - if patient.workflow_state != "discharged"
+        - when patient.workflow_state != "discharged"
           = link_to "Discharge", patient, :method => :delete, :data => {:confirm => "Would you like to discharge this patient?"} 
 
