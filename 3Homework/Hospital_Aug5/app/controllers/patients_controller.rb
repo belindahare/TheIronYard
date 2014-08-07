@@ -34,6 +34,26 @@ class PatientsController < ApplicationController
     redirect_to root_path
   end
 
+  # def examined
+  #   @patient.examined!
+  #   redirect_to patient_url
+  # end
+
+  def xrayed
+    @patient.xrayed!
+    redirect_to patient_url
+  end
+
+  def recovery
+    @patient.recovering!
+    redirect_to patient_url
+  end
+
+  def discharged
+    @patient.discharged!
+    redirect_to patient_url
+  end
+
   private 
     def patient_params
       params.require(:patient).permit(:first_name, :last_name, :dob, :description, :gender)

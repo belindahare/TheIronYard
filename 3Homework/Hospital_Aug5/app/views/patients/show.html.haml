@@ -1,0 +1,20 @@
+%h2
+  = @patient.first_name
+  = @patient.last_name
+%h3
+  = @patient.dob
+%h3
+  = @patient.gender
+%h4 Reason for visit:
+%ul
+  %li
+    = @patient.description
+%br
+
+%h5 @patient.current_state
+
+%br
+= link_to "Home", root_path
+%br/
+%hr/
+%hr/

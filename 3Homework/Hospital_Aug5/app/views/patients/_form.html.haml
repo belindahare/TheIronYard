@@ -1,0 +1,29 @@
+= form_for @patient do |f|
+  - if  f.object.errors.messages.length > 0
+    - f.object.errors.messages.inspect
+    %br/
+    - f.object.errors.messages.each do |key, value|
+      - value.each do |message|
+        = key.capitalize
+        = message
+        %br/
+      %br/
+  = f.label :first_name
+  = f.text_field :first_name
+  %br/
+  = f.label :last_name
+  = f.text_field :last_name
+  %br/
+  = f.label :dob
+  = f.date_select :dob
+  %br/
+  = f.label :description, "Enter reason for patient's visit"
+  = f.text_field :description
+  %br/
+  = f.label "Male"
+  = f.radio_button :gender, "Male"
+  = f.label "Female"
+  = f.radio_button :gender, "Female"
+  %br/
+  = f.submit
+  = link_to "Home", root_path

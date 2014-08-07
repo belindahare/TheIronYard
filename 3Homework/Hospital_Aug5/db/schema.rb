@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140805171237) do
+ActiveRecord::Schema.define(version: 20140806195302) do
 
   create_table "patients", force: true do |t|
     t.string   "first_name"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20140805171237) do
     t.string   "gender"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "workflow_state"
   end
 
 end
