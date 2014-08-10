@@ -1,4 +1,5 @@
 class Patient < ActiveRecord::Base
+  belongs_to :hospital
 #this is where the workflow goes!
   include Workflow
   workflow do

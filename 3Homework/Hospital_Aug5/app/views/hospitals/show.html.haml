@@ -1,0 +1,17 @@
+%h2 #{@hospital.name}
+= link_to 'Admit New Patient', new_hospital_patient_path(@hospital)
+%br
+%br
+%h3 Patient List
+
+%ul
+  - @hospital.patients.each do |patients|
+    %li
+      = link_to "#{patients.first_name} #{patients.last_name}", hospital_patient_path(@hospital, patients)
+      |
+      = link_to "Edit", edit_hospital_patient_path(@hospital, patients)
+      |
+      = link_to "Delete", hospital_patient_path(@hospital, patients), method: :delete
+
+%br
+= link_to "Back", hospitals_path

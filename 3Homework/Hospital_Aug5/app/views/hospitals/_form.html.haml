@@ -1,0 +1,20 @@
+= form_for @hospital do |f|
+  - if f.object.errors.messages.length > 0
+    - f.object.errors.messages.inspect
+    %br/
+    - f.object.errors.messages.each do |key, value|
+      - value.each do |message|
+        = key.capitalize
+        = message
+    %br/
+    %br/
+  = f.label :name
+  = f.text_field :name
+  %br 
+  %br
+  = f.label :description, "City and State"
+  = f.text_field :description
+  %br
+  = f.submit "Add New Hospital"
+
+ 

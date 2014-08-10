@@ -1,16 +1,5 @@
-%h2
-  = @patient.first_name
-  = @patient.last_name
-%h3
-  = @patient.dob
-%h3
-  = @patient.gender
-%h4 Reason for visit:
-%ul
-  %li
-    = @patient.description
-
-
+/ = link_to 'Admit New Patient', new_hospital_patient_path(patient)
+%br
 %table
   %tr
     %th first_name
@@ -25,7 +14,7 @@
     %tr
       %td= patient.first_name
       %td= patient.last_name 
-      %td= patient.dob                      
+      %td= patient.dob 
       %td= patient.description
       %td= patient.genders
       %td= patient.workflow_state
@@ -54,9 +43,3 @@
 
         - if patient.workflow_state == "discharged"
           = link_to "Discharge Patient From Database", patient, :method => :delete, :data => {:confirm => "Would you like to discharge this patient?"} 
-
-%br
-= link_to "Home", root_path
-%br/
-%hr/
-%hr/
