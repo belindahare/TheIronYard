@@ -10,8 +10,7 @@ class PatientsController < ApplicationController
 
   def create
     @hospital = Hospital.find params[:hospital_id]
-    # @patient = @hospital.patient.new(patient_params)
-    @patient = Patient.new patient_params
+    @patient = @hospital.patients.new(patient_params)
     if @patient.save
     redirect_to root_path
     else 
@@ -68,9 +67,6 @@ class PatientsController < ApplicationController
 end
 
 
-#from show page
-#<%= link_to "Edit", edit_patient_path(patient) %> | 
-#<%= link_to "Delete", patient_path(patient), method: :delete %>
-#<%= link_to "Back", root_path %>
+
 
 

@@ -32,6 +32,8 @@ class HospitalsController < ApplicationController
 
   def destroy
     @hospital = Hospital.find params[:id]
+    @hospital.delete
+    redirect_to root_path
   end
 
 

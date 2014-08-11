@@ -5,13 +5,13 @@
 %h3 Patient List
 
 %ul
-  - @hospital.patients.each do |patients|
+  - @hospital.patients.each do |patient|
     %li
-      = link_to "#{patients.first_name} #{patients.last_name}", hospital_patient_path(@hospital, patients)
+      = link_to "#{patient.first_name} #{patient.last_name}", hospital_patient_path(@hospital,patient)
       |
-      = link_to "Edit", edit_hospital_patient_path(@hospital, patients)
+      = link_to "Edit", edit_hospital_patient_path(@hospital, patient)
       |
-      = link_to "Delete", hospital_patient_path(@hospital, patients), method: :delete
+      = link_to "Destroy", hospital_patient_path(@hospital, patient), method: :delete
 
 %br
-= link_to "Back", hospitals_path
+= link_to "Back", root_path
