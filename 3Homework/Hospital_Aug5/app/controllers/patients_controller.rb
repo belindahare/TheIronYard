@@ -1,6 +1,8 @@
 class PatientsController < ApplicationController
   before_action :find_patient, only: [:show, :edit, :update, :destroy, :examined, :xrayed, :recovery, :discharged]
   def show
+    @hospital = Hospital.find params[:hospital_id]
+
   end
 
   def new
@@ -38,23 +40,25 @@ class PatientsController < ApplicationController
   end
 
   def examined
+    @hospital = Hospital.find params[:hospital_id]
     @patient.checkup!
-    redirect_to patient_url
+    redirect_to hospital_patient_path(@hospital, @patient)
   end
 
   def xrayed
+    @hospital = Hospital.find params[:hospital_id]
     @patient.xray!
-    redirect_to patient_url
+    redirect_to hospital_patient_path(@hospital, @patient)
   end
 
   def recovery
     @patient.surgery!
-    redirect_to patient_url
+    redirect_to hospital_patient_path
   end
 
   def discharged
     @patient.finance!
-    redirect_to patient_url
+    redirect_to hospital_patient_path
   end
 
   private 

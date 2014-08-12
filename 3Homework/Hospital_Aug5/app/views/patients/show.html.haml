@@ -5,31 +5,34 @@
   = @patient.dob
 %h3
   = @patient.gender
-%h4 Reason for visit:
-%ul
-  %li
-    = @patient.description
+%h3 
+  Reason for visit:
 
-    %td.workflow_state
+  = @patient.description
+%h3
+  Status: #{@patient.workflow_state}
 
-      - if @patient.workflow_state != "waiting_room!" 
-        = link_to "Checkup",examined_hospital_patient_medication_path(@hospital, @patient, medication), method: :put
-        = link_to "X-Ray", xrayed_hospital_patient_medication_path(@hospital, @patient, medication), method: :put
-        = link_to "Surgery", recovery_hospital_patient_path(@hospital, @patient), method: :put
-        = link_to "Discharge", discharged_hospital_patient_path(@hospital, @patient), method: :put
+%td.workflow_state
 
-      - if @patient.workflow_state == "examined"
-        = link_to "xrayed", xrayed_hospital_patient_path(@hospital, @patient), method: :put
-        = link_to "recovering", recovery_hospital_patient_path(@hospital, @patient), method: :put
-        = link_to "discharged", discharged_hospital_patient_path(@hospital, @patient), method: :put
+  - if @patient.workflow_state != "waiting_room" 
+    = link_to "Checkup",examined_hospital_patient_path(@hospital, @patient), method: :put
+    = link_to "X-Ray", xrayed_hospital_patient_path(@hospital, @patient), method: :put
+    = link_to "Surgery", recovery_hospital_patient_path(@hospital, @patient), method: :put
+    = link_to "Discharge", discharged_hospital_patient_path(@hospital, @patient), method: :put
 
-      - if @patient.workflow_state == "xrayed"
-        = link_to "recovering", recovery_hospital_patient_path(@hospital, @patient), method: :put
-        = link_to "discharged", discharged_hospital_patient_path(@hospital, @patient), method: :put
+  - elsif @patient.workflow_state == "Examined"
+    = link_to "xrayed", xrayed_hospital_patient_path(@hospital, @patient), method: :put
+    = link_to "recovering", recovery_hospital_patient_path(@hospital, @patient), method: :put
+    = link_to "discharged", discharged_hospital_patient_path(@hospital, @patient), method: :put
 
-      - if @patient.workflow_state == "recovering"
-        = link_to "discharged", discharged_hospital_patient_path(@hospital, @patient), method: :put
+  - elsif @patient.workflow_state == "xrayed"
+    = link_to "recovering", recovery_hospital_patient_path(@hospital, @patient), method: :put
+    = link_to "discharged", discharged_hospital_patient_path(@hospital, @patient), method: :put
 
-      - if @patient.workflow_state == "discharged"
-        = link_to "Discharge Patient From Database", @patient, :method => :delete, :data => {:confirm => "Would you like to discharge this patient?"} 
+  - elsif @patient.workflow_state == "recovering"
+    = link_to "discharged", discharged_hospital_patient_path(@hospital, @patient), method: :put
+
+  - elsif @patient.workflow_state == "discharged"
+    = link_to "Discharge Patient From Database", @patient, :method => :delete, :data => {:confirm => "Would you like to discharge this patient?"} 
+
 

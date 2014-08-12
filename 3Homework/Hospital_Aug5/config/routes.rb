@@ -7,18 +7,17 @@ Rails.application.routes.draw do
   root 'welcome#index'
   resources :hospitals do
     resources :patients do
-       resources :medications do 
       member do
         put :waiting_room
         put :examined
         put :xrayed
         put :recovery
         put :discharged
-       
-        end
+      end
+      resources :medications do
       end
     end
-end
+  end
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
