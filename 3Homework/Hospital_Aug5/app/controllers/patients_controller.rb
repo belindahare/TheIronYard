@@ -2,7 +2,9 @@ class PatientsController < ApplicationController
   before_action :find_patient, only: [:show, :edit, :update, :destroy, :examined, :xrayed, :recovery, :discharged]
   def show
     @hospital = Hospital.find params[:hospital_id]
-
+    @patient = Patient.find params[:id]
+    @medication = @patients.medications.new
+    @doctor = @hospital.doctors.new
   end
 
   def new

@@ -4,6 +4,8 @@ class HospitalsController < ApplicationController
   end
 
   def show
+    #@doctor = Doctor.find params[:doctor_id]
+    @doctor = @hospital.doctors.new 
     @hospital = Hospital.find params[:id]
   end
 
@@ -22,7 +24,7 @@ class HospitalsController < ApplicationController
     @hospitals.delete
     redirect_to @hospital
   end
-  
+
 
   def create
     @hospital = Hospital.new hospital_params
