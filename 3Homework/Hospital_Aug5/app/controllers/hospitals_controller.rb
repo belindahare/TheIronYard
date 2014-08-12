@@ -4,9 +4,10 @@ class HospitalsController < ApplicationController
   end
 
   def show
-    #@doctor = Doctor.find params[:doctor_id]
-    @doctor = @hospital.doctors.new 
     @hospital = Hospital.find params[:id]
+    @doctor = Doctor.find params[:doctor_id]
+    @doctor = @hospital.doctors.new 
+ 
   end
 
   def new
