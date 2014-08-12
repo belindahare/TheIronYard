@@ -1,5 +1,8 @@
 
 %h1 Hospital Database
+%h3
+  = link_to "Add New Hospital To Network", new_hospital_path
+%br
 
 %h3 Network Hospitals
 %ul
@@ -10,8 +13,3 @@
       = link_to "Edit", edit_hospital_path(hospital)
       = link_to "Delete", hospital_path(hospital), method: :delete
       
-
-%br
-= link_to "Add New Hospital To Network", new_hospital_path
-%br
-= link_to "Back", hospitals_path

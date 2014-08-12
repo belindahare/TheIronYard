@@ -9,7 +9,6 @@ class MedicationsController < ApplicationController
     @medication = Medication.new
   end
   def create
-    @medicaiton = Medication.find params[:id]
     @medication = @patient.medications.new(medication_params)
     if @medication.save == true
       redirect_to hospital_patient_path(@hospital, @patient)

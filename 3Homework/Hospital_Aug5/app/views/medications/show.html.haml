@@ -1,0 +1,9 @@
+%h2 #{@patient.name}
+%br
+%br
+%h3 #{@medication.name}
+%h3 #{@medication.description}
+
+      = link_to "Edit", edit_hospital_patient_medication(@hospital, @patient, medication)
+      |
+      = link_to "Delete", hospital_patient_medication(@hospital, @patient, medication), method: :delete

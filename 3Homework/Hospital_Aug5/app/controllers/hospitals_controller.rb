@@ -5,7 +5,7 @@ class HospitalsController < ApplicationController
 
   def show
     @hospital = Hospital.find params[:id]
-    @doctor = Doctor.find params[:doctor_id]
+   
     @doctor = @hospital.doctors.new 
  
   end
@@ -15,19 +15,20 @@ class HospitalsController < ApplicationController
   end
   def create_doctor
     @hospital = Hospital.find params[:id]
-    @hospitals.doctors.create doctor_params
+    @hospital.doctors.create doctor_params
     redirect_to @hospital
   end
 
   def delete_doctor
     @hospital = Hospital.find params[:id]
     @doctor = Doctor.find params[:doctor_id]
-    @hospitals.delete
+    @doctor.delete
     redirect_to @hospital
   end
 
 
   def create
+
     @hospital = Hospital.new hospital_params
     if @hospital.save
     redirect_to root_path

@@ -15,49 +15,53 @@
 
 %td.workflow_state
 
-  - if @patient.workflow_state != "waiting_room" 
+  - if @patient.workflow_state == "waiting_room" 
     = link_to "checkup",examined_hospital_patient_path(@hospital, @patient), method: :put
     = link_to "xray", xrayed_hospital_patient_path(@hospital, @patient), method: :put
     = link_to "surgery", recovery_hospital_patient_path(@hospital, @patient), method: :put
     = link_to "finance", discharged_hospital_patient_path(@hospital, @patient), method: :put
 
-  - elsif @patient.workflow_state == "Examined"
+  - if @patient.workflow_state == "examined"
     = link_to "xrayed", xrayed_hospital_patient_path(@hospital, @patient), method: :put
     = link_to "recovering", recovery_hospital_patient_path(@hospital, @patient), method: :put
     = link_to "discharged", discharged_hospital_patient_path(@hospital, @patient), method: :put
 
-  - elsif @patient.workflow_state == "xrayed"
+  - if @patient.workflow_state == "xrayed"
     = link_to "recovering", recovery_hospital_patient_path(@hospital, @patient), method: :put
     = link_to "discharged", discharged_hospital_patient_path(@hospital, @patient), method: :put
 
-  - elsif @patient.workflow_state == "recovering"
+  - if @patient.workflow_state == "recovery"
     = link_to "discharged", discharged_hospital_patient_path(@hospital, @patient), method: :put
 
-  - elsif @patient.workflow_state == "discharged"
-    = link_to "Discharge Patient From Database", @patient, :method => :delete, :data => {:confirm => "Would you like to discharge this patient?"} 
+  - if @patient.workflow_state == "discharged"
+    = link_to "Discharge Patient From Database", hospital_patient_path(@hospital, @patient), :method => :delete, :data => {:confirm => "Would you like to discharge this patient?"} 
+
 
 %hr
 
-= link_to "Add Medication", new_hospital_patient_medication_path(@hospital, @patient)
 
-%h3 
-  Current Medicaitons:
+
+%h4 
+  Current Medications:
+  = link_to "Add Medication", new_hospital_patient_medication_path(@hospital, @patient)
+%p
   - @patient.medications.each do |medication|
     %li
-    = link_to "#{medication.name}", hospital_patient_medicaiton_path(@hospital, @patient, medication)
+    = link_to "#{medication.name}", hospital_patient_medication_path(@hospital, @patient, medication)
     |
     = link_to "Edit", edit_hospital_patient_medication_path(@hospital, @patient, medication)
     |
     = link_to "Destroy", hospital_patient_medication_path(@hospital, @patient, medication), method: :delete
 
 %h3
+Medical Staff Assigned To Patient:
 - @patient.doctors.each do |doctor|
   - if doctor.name 
     %p= doctor.name
-    = link_to "| Delete Doctor |", delete_doctor_hospital_patient_path(@hospital, @patient, doctor_id: doctor.id), method: :delete
+    = link_to "Delete Doctor", delete_doctor_hospital_patient_path(@hospital, @patient, doctor_id: doctor.id), method: :delete
   %br
 = form_for @doctor, url: create_doctor_hospital_patient_path(@hospital, @patient) do |f|
-  %p= f.label :name
+  %p= f.label :name, "Doctor To Be Assigned:"
   %p= f.text_field :name
   %p= f.submit
 

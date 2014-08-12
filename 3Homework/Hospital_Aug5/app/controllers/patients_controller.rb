@@ -3,7 +3,6 @@ class PatientsController < ApplicationController
   def show
     @hospital = Hospital.find params[:hospital_id]
     @patient = Patient.find params[:id]
-    @medication = @patients.medications.new
     @doctor = @hospital.doctors.new
   end
 
@@ -13,8 +12,8 @@ class PatientsController < ApplicationController
   end
 
   def create_doctor
-    @doctor = @patient.doctors.create[:doctor_params]
     @patient = Patient.find params[:id]
+    @doctor = @patient.doctors.create doctor_params
     redirect_to hospital_patient_path
   end
 
