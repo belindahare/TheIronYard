@@ -10,6 +10,19 @@ class HospitalsController < ApplicationController
   def new
     @hospital = Hospital.new
   end
+  def create_doctor
+    @hospital = Hospital.find params[:id]
+    @hospitals.doctors.create doctor_params
+    redirect_to @hospital
+  end
+
+  def delete_doctor
+    @hospital = Hospital.find params[:id]
+    @doctor = Doctor.find params[:doctor_id]
+    @hospitals.delete
+    redirect_to @hospital
+  end
+  
 
   def create
     @hospital = Hospital.new hospital_params
@@ -40,5 +53,9 @@ class HospitalsController < ApplicationController
   private
   def hospital_params
     params.require(:hospital).permit(:name, :description)
+  end
+
+  def doctor_params
+    params.require(:doctor).permit(:name)
   end
 end

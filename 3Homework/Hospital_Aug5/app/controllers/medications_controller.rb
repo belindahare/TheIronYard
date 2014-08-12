@@ -2,10 +2,14 @@ class MedicationsController < ApplicationController
   before_action :find_patient
   before_action :find_hospital
   before_action :find_medication, only: [:show, :edit, :update, :destroy]
+  def index
+    @medication = Medication.all
+  end 
   def new
     @medication = Medication.new
   end
   def create
+    @medicaiton = Medication.find params[:id]
     @medication = @patient.medications.new(medication_params)
     if @medication.save == true
       redirect_to hospital_patient_path(@hospital, @patient)

@@ -12,13 +12,14 @@
 %h3
   Status: #{@patient.workflow_state}
 
+
 %td.workflow_state
 
   - if @patient.workflow_state != "waiting_room" 
-    = link_to "Checkup",examined_hospital_patient_path(@hospital, @patient), method: :put
-    = link_to "X-Ray", xrayed_hospital_patient_path(@hospital, @patient), method: :put
-    = link_to "Surgery", recovery_hospital_patient_path(@hospital, @patient), method: :put
-    = link_to "Discharge", discharged_hospital_patient_path(@hospital, @patient), method: :put
+    = link_to "checkup",examined_hospital_patient_path(@hospital, @patient), method: :put
+    = link_to "xray", xrayed_hospital_patient_path(@hospital, @patient), method: :put
+    = link_to "surgery", recovery_hospital_patient_path(@hospital, @patient), method: :put
+    = link_to "finance", discharged_hospital_patient_path(@hospital, @patient), method: :put
 
   - elsif @patient.workflow_state == "Examined"
     = link_to "xrayed", xrayed_hospital_patient_path(@hospital, @patient), method: :put
@@ -34,5 +35,34 @@
 
   - elsif @patient.workflow_state == "discharged"
     = link_to "Discharge Patient From Database", @patient, :method => :delete, :data => {:confirm => "Would you like to discharge this patient?"} 
+
+%hr
+
+= link_to "Add Medication", new_hospital_patient_medication_path(@hospital, @patient)
+
+%h3 
+  Current Medicaitons:
+  - @patient.medications.each do |medication|
+    %li
+    = link_to "#{medication.name}", hospital_patient_medicaiton_path(@hospital, @patient, medication)
+    |
+    = link_to "Edit", edit_hospital_patient_medication_path(@hospital, @patient, medication)
+    |
+    = link_to "Destroy", hospital_patient_medication_path(@hospital, @patient, medication), method: :delete
+
+%h3
+- @patient.doctors.each do |doctor|
+  - if doctor.name 
+    %p= doctor.name
+    = link_to "| Delete Doctor |", delete_doctor_hospital_patient_path(@hospital, @patient, doctor_id: doctor.id), method: :delete
+  %br
+= form_for @doctor, url: create_doctor_hospital_patient_path(@hospital, @patient) do |f|
+  %p= f.label :name
+  %p= f.text_field :name
+  %p= f.submit
+
+
+
+
 
 
