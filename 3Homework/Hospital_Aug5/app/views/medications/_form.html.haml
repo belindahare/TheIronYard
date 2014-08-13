@@ -1,18 +1,19 @@
-= form_for [@hospital, @patient, @medication] do |f|
-  - if f.object.errors.messages.length > 0
-    - f.object.errors.messages.inspect
-    %br/
-    - f.object.errors.messages.each do |key, value|
-      - value.each do |message|
-        = key.capitalize
-        = message
-    %br/
-    %br/
-  = f.label :name
-  = f.text_field :name
-  %br 
-  %br
-  = f.label :description, "Dosage"
-  = f.text_field :description
-  %br
-  = f.submit "Add Medication to Patient File"
+%div
+  = form_for [@hospital, @patient, @medication] do |f|
+    - if f.object.errors.messages.length > 0
+      - f.object.errors.messages.inspect
+      %br/
+      - f.object.errors.messages.each do |key, value|
+        - value.each do |message|
+          = key.capitalize
+          = message
+      %br/
+      %br/
+    = f.label :name
+    = f.text_field :name
+    %br 
+    %br
+    = f.label :description, "Dosage"
+    = f.text_field :description
+    %br
+    = f.submit "Add Medication to Patient File"

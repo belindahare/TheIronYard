@@ -1,4 +1,4 @@
-%h2 #{@hospital.name}
+%h1 #{@hospital.name}
 
 %br
 %br
@@ -6,27 +6,26 @@
 
 %ul
   - @hospital.patients.each do |patient|
-    %li
-      = link_to "#{patient.first_name} #{patient.last_name}", hospital_patient_path(@hospital,patient)
-      |
-      = link_to "Edit", edit_hospital_patient_path(@hospital, patient)
-      |
-      = link_to "Destroy", hospital_patient_path(@hospital, patient), method: :delete
-%h3= link_to 'Admit New Patient', new_hospital_patient_path(@hospital)
+    = link_to "#{patient.first_name} #{patient.last_name}", hospital_patient_path(@hospital,patient)
+    = link_to "Edit", edit_hospital_patient_path(@hospital, patient)
+    = link_to "Destroy", hospital_patient_path(@hospital, patient), method: :delete
+    %br
+%h4= link_to 'Admit New Patient', new_hospital_patient_path(@hospital)
 %br
 %h3 Doctors on Staff
 
 %ul
-- @hospital.doctors.each do |doctor|
-  - if doctor.name 
-    = doctor.name
-    = link_to "Delete Doctor", delete_doctor_hospital_path(@hospital, doctor_id: doctor.id), method: :delete
+  %div
+  - @hospital.doctors.each do |doctor|
+    - if doctor.name 
+      = doctor.name
+      = link_to "Delete Doctor", delete_doctor_hospital_path(@hospital, doctor_id: doctor.id), method: :delete
 %br
-%br
-= form_for @doctor, url: create_doctor_hospital_path(@hospital) do |f|
-  = f.label :name
-  = f.text_field :name
-  = f.submit
+%div
+  = form_for @doctor, url: create_doctor_hospital_path(@hospital) do |f|
+    = f.label :name
+    = f.text_field :name
+    = f.submit
 
 
 %br

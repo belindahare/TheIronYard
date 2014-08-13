@@ -1,15 +1,16 @@
 
 %h1 Hospital Database
-%h3
-  = link_to "Add New Hospital To Network", new_hospital_path
+
 %br
 
-%h3 Network Hospitals
+%h2 Network Hospitals
 %ul
   - @hospitals.each do |hospital|
     %li
+      = hospital.description.upcase
       = link_to "#{hospital.name}", hospital_path(hospital)
-      = hospital.description
-      = link_to "Edit", edit_hospital_path(hospital)
-      = link_to "Delete", hospital_path(hospital), method: :delete
+      = link_to "| Edit |", edit_hospital_path(hospital)
+      = link_to "Delete |", hospital_path(hospital), method: :delete
+%h4
+  = link_to "Add New Hospital To Network", new_hospital_path
       
