@@ -18,7 +18,7 @@ class PatientsController < ApplicationController
   end
 
   def delete_doctor
-    @hospital = Hospital.find params[:id]
+    
     @patient = Patient.find params[:id]
     @doctor = Doctor.find params[:doctor_id]
     @doctor.delete

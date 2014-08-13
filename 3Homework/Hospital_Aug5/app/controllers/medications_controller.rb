@@ -26,9 +26,10 @@ class MedicationsController < ApplicationController
       render :edit
     end  
   end
+  
   def show
-    
   end
+
   def destroy
     @medication.delete
     redirect_to hospital_patient_path(@hospital, @patient)

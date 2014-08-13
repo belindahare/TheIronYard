@@ -44,20 +44,26 @@
 %h4 
   %div
     Current Medications:
-    = link_to "Add Medication", new_hospital_patient_medication_path(@hospital, @patient)
+    
 %p
   - @patient.medications.each do |medication|
     = link_to "#{medication.name}", hospital_patient_medication_path(@hospital, @patient, medication)
     = link_to "Edit", edit_hospital_patient_medication_path(@hospital, @patient, medication)
     = link_to "Destroy", hospital_patient_medication_path(@hospital, @patient, medication), method: :delete
     %br
+%div
+  = link_to "Add Medication", new_hospital_patient_medication_path(@hospital, @patient)
+%br
+%br
 
-%h3
-  %div
+
+%div
   Medical Staff Assigned To Patient:
+  %br
+  %br
   - @patient.doctors.each do |doctor|
     - if doctor.name 
-      %p= doctor.name
+      = doctor.name
       = link_to "Delete Doctor", delete_doctor_hospital_patient_path(@hospital, @patient, doctor_id: doctor.id), method: :delete
   %br
 %div 
@@ -65,8 +71,9 @@
     = f.label :name, "Doctor To Be Assigned:"
     = f.text_field :name
     = f.submit
+%br
 
-
+= link_to "Back", hospital_path(@hospital)
 
 
 

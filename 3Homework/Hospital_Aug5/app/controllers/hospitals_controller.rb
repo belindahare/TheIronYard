@@ -5,9 +5,7 @@ class HospitalsController < ApplicationController
 
   def show
     @hospital = Hospital.find params[:id]
-   
     @doctor = @hospital.doctors.new 
- 
   end
 
   def new
