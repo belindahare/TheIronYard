@@ -3,8 +3,11 @@
   %head
     %link{href: "http://fonts.googleapis.com/css?family=Arvo:400,700,400italic,700italic", rel: "stylesheet", type: "text/css"}/
     %title HospitalAug5
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
-    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track'  => true
+    = javascript_include_tag 'application', 'data-turbolinks-track'  => true
     = csrf_meta_tags
+    = login_links
+    %p.notice= notice if notice
+    %p.alert= alert if alert
   %body
     = yield

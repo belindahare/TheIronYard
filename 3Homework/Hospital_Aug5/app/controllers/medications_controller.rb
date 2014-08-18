@@ -1,4 +1,5 @@
 class MedicationsController < ApplicationController
+  before_action :authenticate_user!, only: [:show, :new, :edit, :update, :destroy]
   before_action :find_patient
   before_action :find_hospital
   before_action :find_medication, only: [:show, :edit, :update, :destroy]

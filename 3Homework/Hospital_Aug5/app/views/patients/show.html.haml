@@ -49,7 +49,7 @@
   - @patient.medications.each do |medication|
     = link_to "#{medication.name}", hospital_patient_medication_path(@hospital, @patient, medication)
     = link_to "Edit", edit_hospital_patient_medication_path(@hospital, @patient, medication)
-    = link_to "Destroy", hospital_patient_medication_path(@hospital, @patient, medication), method: :delete
+    = link_to "Delete", hospital_patient_medication_path(@hospital, @patient, medication), method: :delete
     %br
 %div
   = link_to "Add Medication", new_hospital_patient_medication_path(@hospital, @patient)
