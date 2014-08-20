@@ -5,3 +5,6 @@ Inside of each week's folder you will find folders for each day of the week, lab
 Find the date for the assignment you wish to view and inside the folder you will find the code documents.
 
 Enjoy!
+
+
+Hospital Project is in folder: 3Homework
