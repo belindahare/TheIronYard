@@ -1,3 +1,4 @@
+
 = form_for @hospital do |f|
   - if f.object.errors.messages.length > 0
     - f.object.errors.messages.inspect
@@ -16,6 +17,9 @@
   = f.text_field :description
   %br
   %br
-  = f.submit "Add New Hospital"
+  = f.submit.validate_hospital "Add New Hospital"
+  %br
+  %br
+  = link_to "Back", root_path
 
- 
+
