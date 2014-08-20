@@ -3,12 +3,13 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 $(document).ready(function() {
 
-$(".validate_hospital").click( function(event){
+$(".validate_hospital").click( function(){
   
 
 if ($("#hospital_name").val() === ("") ) {
+  $()
   alert("name or description can't be blank");
-  event.preventDefault();
+  .preventDefault();
 
   }
 })
