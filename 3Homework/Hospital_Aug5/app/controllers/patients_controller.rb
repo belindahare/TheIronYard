@@ -1,6 +1,16 @@
+
 class PatientsController < ApplicationController
   before_action :authenticate_user!, only: [:show, :new, :edit, :update, :destroy]
   before_action :find_patient, only: [:show, :edit, :update, :destroy, :examined, :xrayed, :recovery, :discharged]
+
+  def patients_search
+    @patients = Patient.where("last_name LIKE ?", "%#{params[:q]}%")
+    respond_to do |format|
+      format.js
+    end
+  end
+
+  
   def show
     @hospital = Hospital.find params[:hospital_id]
     @patient = Patient.find params[:id]
@@ -30,7 +40,7 @@ class PatientsController < ApplicationController
   def create
     @hospital = Hospital.find params[:hospital_id]
     @patient = @hospital.patients.new(patient_params)
-    if @patient.save
+    if @hospital_patient.save
     redirect_to root_path
     else 
       render :new

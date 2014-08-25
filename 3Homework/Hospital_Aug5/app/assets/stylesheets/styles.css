@@ -1,55 +1,112 @@
-h1{
-  background-color: #a8a8a8; background-image: url(http://www.transparenttextures.com/patterns/honey-im-subtle.png);font-weight: normal; font-size: 50px; background-color: #989898; padding: 5px; margin: 0; color: #55B59F; text-shadow: 2px 2px 3px #666666;text-align: center; width: 100;
+a{
+    padding-top: 20px; 
+    margin: 20px 0px 0px 20px; 
+    text-decoration: none; 
+    text-shadow: .5px .5px #666666; 
+    letter-spacing: 1.5px;
 }
 
+a:hover {
+    color: #aeb692;
+}
+
+a:link, a:visited {
+  color: #7d7466;
+  text-decoration: none;
+}
+
+a.patient_search{
+color: white;
+}
+a.Examined{
+color: white;
+
+}
+a.X-rayed{
+color: white;
+}
+a.Recovery{
+  color: white;
+}
+a.Billing{
+  color: white;
+}
+a.Discharge{
+  color: white;
+}
 body{
- font-family: 'Arvo', serif; background-color: #7a7a7a; background-image: url(http://www.transparenttextures.com/patterns/honey-im-subtle.png) ; color: white; font-weight: 550px; font-size: 19px; margin: 0px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-family: 'Josefin Sans', sans-serif;
+  background-image: url(/assets/az-subtle.png);
+  background-repeat: repeat;
+  background-color: #d4decd; 
+  color: white;  
+  font-size: 21px; 
+  margin: 0px;
+}
+
+.doctor_display_name{
+  color: #175965;
+  font-size: 21px;
+}
+
+.nav{
+  background-image: url(/assets/hospital2.jpg);
+}
+
+h1{
+  font-size: 50px; 
+  padding: 5px;
+  margin-top: 60px; 
+  margin: 0; 
+  color: #175965; 
+  text-shadow: 2px 2px 3px #666666;
+  text-align: center; 
 }
 
 h2{
-  margin: 20px 0px 0px 20px; color: white; text-shadow: 2px 2px 1px #666666;text-align: left; margin: 0px;
+  margin: 20px 0px 0px 20px; 
+  color: #7d7466; 
+  text-shadow: 1px 1px 1px #666666;
+  text-align: left; 
+  margin: 0px;
 
 }
 h3{
-  margin: 20px 0px 0px 20px; font-weight: normal;
-}
-a {
-    padding-top: 20px; margin: 20px 0px 0px 20px; text-decoration: none; text-shadow: .5px .5px #666666; letter-spacing: 1.5px;
-}
-a:link, a:visited {
-    color: #FF444F;
-}
-a:hover {
-    color: orange;
+  margin: 20px 0px 0px 20px; 
+  font-size: 25px;
+  color: #aeb692;
 }
 
-h4{
-  font-weight: normal;
+.hospital_control{
+  text-align: center;
 }
+
+input{
+  color: black;
+}
+
 label{
-  color: white;
+  color: #175965;
 }
+
+.nav-pills>li.active>a, .nav-pills>li.active>a:hover, .nav-pills>li.active>a:focus{
+  background-color: #aeb692;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
 p{
   margin-left: 20px;
+  color: #175965;
 }
-div{
-  margin-left: 20px;
-}
-.login_links{
-float: right;
-}
-
-
-
-
-
 
 
 /* Space out content a bit */
-body {
-  padding-top: 20px;
-  padding-bottom: 20px;
-}
+
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,
@@ -60,16 +117,9 @@ body {
 }
 
 /* Custom page header */
-.header {
-  border-bottom: 1px solid #e5e5e5;
-}
+
 /* Make the masthead heading the same height as the navigation */
-.header h3 {
-  padding-bottom: 19px;
-  margin-top: 0;
-  margin-bottom: 0;
-  line-height: 40px;
-}
+
 
 /* Custom page footer */
 .footer {
@@ -97,13 +147,21 @@ body {
   padding: 14px 24px;
   font-size: 21px;
 }
-
+.container{
+  background-image: url(/assets/az-subtle.png);
+  background-color: #f5f3e4;
+  background-repeat: repeat;
+  border-radius: 10px;
+  border-color: 15px black;
+  margin-left: auto;
+  margin-top: 20px;
+}
 /* Supporting marketing content */
 .marketing {
-  margin: 40px 0;
+  margin: 0px 0;
 }
 .marketing p + h4 {
-  margin-top: 28px;
+  margin-top: 0px;
 }
 
 /* Responsive: Portrait tablets and up */
@@ -116,11 +174,15 @@ body {
     padding-left: 0;
   }
   /* Space out the masthead */
-  .header {
-    margin-bottom: 30px;
-  }
+
   /* Remove the bottom border on the jumbotron for visual effect */
   .jumbotron {
     border-bottom: 0;
   }
+  .btn-success{
+  background-image: none;
+  background-color: #175965;
+  color: white;
+  }
 }
+

@@ -4,13 +4,33 @@
 %br
 
 %h2 Network Hospitals
+%br
+
+- group_number = 0
 %ul
-  - @hospitals.each do |hospital|
-    %li
-      = hospital.description.upcase
-      = link_to "#{hospital.name}", hospital_path(hospital)
-      = link_to "| Edit |", edit_hospital_path(hospital)
-      = link_to "Delete |", hospital_path(hospital), method: :delete
+  - @hospitals.each_slice(10) do |group_hospital|
+    - group_number += 1
+    - group_hospital.each do |group|
+      %li{ class: "#{'hidden' if group_number >= 2} group_#{group_number} hospital_list"}
+        = link_to group.name, hospital_path(group)
+        %hr
+  - group_number.times do |x|
+    = link_to x+1, "javascript:void(0);", class: "next_page"
+%br
+%br
 %h4
   = link_to "Add New Hospital To Network", new_hospital_path
-      
+%hr
+%p
+  Patient's Last Name:
+=text_field_tag" "," ", class: "patient_search"
+=link_to "Patient Search", 'javascript:void(0)', class: "patient_search btn btn-lg btn-success"
+%ul.seach_list
+
+
+/ create a .next_page in the hospital.js file
+
+
+  
+
+

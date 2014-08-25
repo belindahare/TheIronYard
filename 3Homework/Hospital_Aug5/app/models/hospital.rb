@@ -5,5 +5,5 @@ class Hospital < ActiveRecord::Base
   validates :name, presence: true
   validates :description, presence: true
 
-  default_scope{ order("description") }
+  default_scope{ order("name") }
 end

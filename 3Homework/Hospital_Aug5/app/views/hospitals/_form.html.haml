@@ -9,15 +9,17 @@
         = message
     %br/
     %br/
+  %div.error Please enter a name
   = f.label :name
-  = f.text_field :name
+  = f.text_field :name  
+  
   %br 
   %br
   = f.label :description, "City and State"
   = f.text_field :description
   %br
   %br
-  = f.submit "Submit", class: "validate_hospital"
+  = f.submit 
   %br
   %br
   = link_to "Back", root_path

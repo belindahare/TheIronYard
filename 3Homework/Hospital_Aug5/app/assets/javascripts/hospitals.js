@@ -1,20 +1,33 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
 $(document).ready(function() {
 
-$(".validate_hospital").click( function(){
-  
+  $(".validate_hospital").click( function() {
+    if ($("#hospital_name").val() != ("") )
 
-if ($("#hospital_name").val() === ("") ) {
-  $()
-  alert("name or description can't be blank");
-  .preventDefault();
+    var new_name = $(".student_name").val()
+    if(new_name != ""){
+      $(".students_list").append("<li>" + new_name + "</li>")
+      $(".student_name").val("")
+    }
+  })
 
-  }
-})
+  $(".next_page").click( function() {
+    var next_page = $(this).html()
+    $(".hospital_list").addClass("hidden")
+    $(".group_" + next_page).removeClass("hidden")
+  })
+ 
 
-
+  $('#hospital_name').keyup( function(){
+    if($('#hospital_name').val() == ""){
+      $('.error').show()
+      $('.error').html("Please enter name!")
+      $('.error').fadeOut(2000)
+      $('input[type=submit]').attr('disabled', 'disabled');
+    }
+    else {
+      $('input[type=submit]').removeAttr('disabled');
+    }
+  })
 
 
 

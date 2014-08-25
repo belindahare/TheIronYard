@@ -1,4 +1,7 @@
-%h1 #{@hospital.name}
+%h1 
+  #{@hospital.name}
+  %br
+  #{@hospital.description}
 
 %br
 %br
@@ -10,11 +13,12 @@
     = link_to "Edit", edit_hospital_patient_path(@hospital, patient)
     = link_to "Delete", hospital_patient_path(@hospital, patient), method: :delete
     %br
+%br
 %h4= link_to 'Admit New Patient', new_hospital_patient_path(@hospital)
 %br
 %h3 Doctors on Staff
 
-%ul
+%ul.doctor_display_name
   %div
   - @hospital.doctors.each do |doctor|
     - if doctor.name 
@@ -30,3 +34,11 @@
 
 %br
 = link_to "Back", root_path
+%br
+%br
+%br
+%br
+%br
+%div.hospital_control
+  = link_to "Edit Hospital", edit_hospital_path(@hospital)
+  = link_to "Remove From Network", hospital_path(@hospital), method: :delete
