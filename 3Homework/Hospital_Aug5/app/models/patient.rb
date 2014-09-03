@@ -3,7 +3,7 @@ class Patient < ActiveRecord::Base
   has_many :doctors, as: :doctorable
   belongs_to :hospital
 
-  validates :name, presence: true
+  validates :first_name, presence: true
   validates :description, presence: true
 
 #this is where the workflow goes!

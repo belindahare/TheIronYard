@@ -38,7 +38,6 @@ body{
   padding-top: 20px;
   padding-bottom: 20px;
   font-family: 'Josefin Sans', sans-serif;
-  background-image: url(/assets/az-subtle.png);
   background-repeat: repeat;
   background-color: #d4decd; 
   color: white;  
@@ -56,8 +55,10 @@ body{
 }
 
 h1{
-  font-size: 50px; 
-  padding: 5px;
+  font-size: 50px;
+  padding-top: 25px;
+  padding-bottom: 15px; 
+
   margin-top: 60px; 
   margin: 0; 
   color: #175965; 
@@ -104,6 +105,10 @@ p{
   color: #175965;
 }
 
+.patient_search_return{
+  color: #7d7466;
+}
+
 
 /* Space out content a bit */
 
@@ -148,7 +153,7 @@ p{
   font-size: 21px;
 }
 .container{
-  background-image: url(/assets/az-subtle.png);
+
   background-color: #f5f3e4;
   background-repeat: repeat;
   border-radius: 10px;

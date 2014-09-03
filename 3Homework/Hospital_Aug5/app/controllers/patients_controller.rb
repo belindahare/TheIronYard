@@ -40,8 +40,8 @@ class PatientsController < ApplicationController
   def create
     @hospital = Hospital.find params[:hospital_id]
     @patient = @hospital.patients.new(patient_params)
-    if @hospital_patient.save
-    redirect_to root_path
+    if @patient.save
+      redirect_to root_path
     else 
       render :new
     end

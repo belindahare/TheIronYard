@@ -8,11 +8,8 @@
 %h3 Patient List
 
 %ul
-  - @hospital.patients.each do |patient|
-    = link_to "#{patient.first_name} #{patient.last_name}", hospital_patient_path(@hospital,patient)
-    = link_to "Edit", edit_hospital_patient_path(@hospital, patient)
-    = link_to "Delete", hospital_patient_path(@hospital, patient), method: :delete
-    %br
+  = patient_list(@hospital, @patient)
+%br
 %br
 %h4= link_to 'Admit New Patient', new_hospital_patient_path(@hospital)
 %br

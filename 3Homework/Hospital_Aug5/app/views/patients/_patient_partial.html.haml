@@ -1,5 +1,5 @@
-%li
-  = patient.first_name
-  = patient.last_name
-
-  = link_to 'Details', hospital_patient_path(patient.hospital, patient)
+%ul.patient_search_return
+  %li
+    = patient.first_name
+    = patient.last_name
+    =link_to "Details", hospital_patient_path(patient.hospital, patient)

@@ -25,12 +25,9 @@
 %h3 Current Medications:
     
 %a
-  - @patient.medications.each do |medication|
-    = link_to "#{medication.name}", hospital_patient_medication_path(@hospital, @patient, medication)
-    = link_to "Edit", edit_hospital_patient_medication_path(@hospital, @patient, medication)
-    = link_to "Delete", hospital_patient_medication_path(@hospital, @patient, medication), method: :delete
-    %br
-    %br
+= medication_list
+%br
+%br
 %div
   = link_to "Add Medication", new_hospital_patient_medication_path(@hospital, @patient)
 %br
@@ -41,10 +38,7 @@
 %br
 %br
   %p
-    - @patient.doctors.each do |doctor|
-      - if doctor.name 
-        = doctor.name
-        = link_to "Delete Doctor", delete_doctor_hospital_patient_path(@hospital, @patient, doctor_id: doctor.id), method: :delete
+    = patients_assigned_doctor(@hospital, @patient, @doctor)
   %br
 %div 
   = form_for @doctor, url: create_doctor_hospital_patient_path(@hospital, @patient) do |f|
