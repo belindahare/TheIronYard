@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140818175359) do
+ActiveRecord::Schema.define(version: 20140908193328) do
 
   create_table "doctors", force: true do |t|
     t.string   "name"
@@ -27,6 +27,9 @@ ActiveRecord::Schema.define(version: 20140818175359) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.float    "latitude",    limit: 24
+    t.float    "longitude",   limit: 24
+    t.text     "address"
   end
 
   create_table "medications", force: true do |t|

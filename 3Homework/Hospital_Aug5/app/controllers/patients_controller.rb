@@ -63,29 +63,46 @@ class PatientsController < ApplicationController
   def destroy
     @hospital = Hospital.find params[:hospital_id]
     @patient.delete
-    redirect_to root_path
+    redirect_to hospital_path(@hospital)
   end
 
   def examined
     @hospital = Hospital.find params[:hospital_id]
     @patient.checkup!
-    redirect_to hospital_patient_path(@hospital, @patient)
+    # redirect_to hospital_patient_path(@hospital, @patient)
+    respond_to do |format|
+      format.js
+    end
   end
 
   def xrayed
+    p "*"*100
     @hospital = Hospital.find params[:hospital_id]
     @patient.xray!
-    redirect_to hospital_patient_path(@hospital, @patient)
+    p "*"*100
+    # redirect_to hospital_patient_path(@hospital, @patient)
+    respond_to do |format|
+      format.js
+    end
   end
 
   def recovery
+    @hospital = Hospital.find params[:hospital_id]
     @patient.surgery!
-    redirect_to hospital_patient_path
+ 
+    respond_to do |format|
+      format.js
+    end
   end
 
   def discharged
+    @hospital = Hospital.find params[:hospital_id]
     @patient.finance!
-    redirect_to hospital_patient_path
+    respond_to do |format|
+      format.js
+
+
+    end
   end
 
   private 

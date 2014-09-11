@@ -31,6 +31,8 @@ gem 'spring',        group: :development
 gem 'date_validator'
 gem 'devise'
 gem 'html2haml'
+gem 'geocoder'
+gem 'quiet_assets'
 
 
 

@@ -1,0 +1,16 @@
+%h3
+  Status: #{@patient.workflow_state}
+
+%div.workflow_state
+  -if @patient.workflow_state == "waiting_room"
+    = link_to "Checkup", "javascript:void(0);", class: "examined btn btn-lg btn-success", state_path: examined_hospital_patient_path(@hospital, @patient)
+  - if @patient.workflow_state == "examined"
+    = link_to "X-Ray", "javascript:void(0);", class: "xrayed btn btn-lg btn-success", state_path: xrayed_hospital_patient_path(@hospital, @patient)
+  - if @patient.workflow_state == "xrayed"
+    = link_to "Sugery", "javascript:void(0);", class: "recovery btn btn-lg btn-success", state_path: recovery_hospital_patient_path(@hospital, @patient)
+  - if @patient.workflow_state == "recovery" 
+    = link_to "Discharge", "javascript:void(0);", class: "discharged btn btn-lg btn-success", state_path: discharged_hospital_patient_path(@hospital, @patient)
+  - if @patient.workflow_state == "discharged"
+    = link_to "Remove From Records", hospital_patient_path(@hospital, @patient), method: :delete
+
+%hr

@@ -9,17 +9,8 @@
   Reason for visit:
 
   = @patient.description
-%h3
-  Status: #{@patient.workflow_state}
-
-%div.workflow
-= link_to "Checkup", "javascript:void(0);", class: "Examined btn btn-lg btn-success" 
-= link_to "X-Ray", "javascript:void(0);", class: "X-rayed btn btn-lg btn-success"
-= link_to "Surgery", "javascript:void(0);", class: "Recovery btn btn-lg btn-success"
-= link_to "Billing", "javascript:void(0);", class: "Billing btn btn-lg btn-success"
-= link_to "Discharge", "javascript:void(0);", class: "Discharge Patient btn btn-lg btn-success"
-%hr
-
+.workflow
+  = render 'workflow_state'
 
 
 %h3 Current Medications:
