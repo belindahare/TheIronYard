@@ -11,6 +11,10 @@
   - if @patient.workflow_state == "recovery" 
     = link_to "Discharge", "javascript:void(0);", class: "discharged btn btn-lg btn-success", state_path: discharged_hospital_patient_path(@hospital, @patient)
   - if @patient.workflow_state == "discharged"
+    %br
     = link_to "Remove From Records", hospital_patient_path(@hospital, @patient), method: :delete
 
 %hr
+
+
+

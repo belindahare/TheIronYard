@@ -96,8 +96,9 @@ li.patient_search{
 
 ul.nav-pills{
   background-color: rgba( 47,46,45, .8);
+  border-bottom: 10px #FE5620;
   margin-top: 0px;
-  margin-bottom: 5%;
+ 
 }
 
 .nav-pills>li.active>a, .nav-pills>li.active>a:hover, .nav-pills>li.active>a:focus{
@@ -111,6 +112,10 @@ ul.nav-pills{
 .nav-pills>li{
   float: right;
 }
+div.col-xs-12{
+  background-color: #F73025;
+}
+
 
 p{
   margin-left: 20px;
@@ -160,6 +165,9 @@ p{
 .container-narrow > hr {
   margin: 30px 0;
 }
+.container-xs-2.title{
+  max-width: 5%;
+}
 
 /* Main marketing message and sign up button */
 .jumbotron {
@@ -177,7 +185,7 @@ p{
   border-radius: 10px;
   border-color: 15px black;
   margin-left: auto;
-  margin-top: 20px;
+  margin-top: 5%;
 }
 /* Supporting marketing content */
 .marketing {
@@ -203,8 +211,13 @@ p{
     border-bottom: 0;
   }
   .btn-success{
-  background-image: none;
-  background-color: #175965;
+  background-color: #F73025;
   color: white;
+  border: none;
+  }
+  .btn-success:hover{
+    background-color: #D9281F;
+    border: none;
+    color: white;
   }
 }
