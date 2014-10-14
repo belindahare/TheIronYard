@@ -1,0 +1,3 @@
+Week Two homework assignments from The Iron Yard
+
+These taught how to combine ruby and basic html
