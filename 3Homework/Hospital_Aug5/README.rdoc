@@ -1,7 +1,7 @@
 == README
 
 This assignment was added to throughout my time at The Iron Yard.  This taught relationships, devise gem, geolocation, join tables, polymorphic relationships, html, css, bootstrap, ajax search, ajax pagination.
-Technologies Used:
+  Technologies Used:
   ROR
   Bootstrap
   HTML
@@ -10,5 +10,11 @@ Technologies Used:
   Jquery
   Ajax
   Geolocation
+  
+  How to run locally:
+  clone repository
+  bundle install
+  rake db:create db:migrate
+  rails s
   
   
